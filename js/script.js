@@ -103,10 +103,10 @@ botonesFiltro.forEach(function (boton) {
 
         productos.forEach(function (producto) {
             if (filtro === 'todos' || producto.dataset.categoria === filtro) {
-                producto.hidden = false;   // se ve
+                producto.classList.remove('hidden');   // se ve
                 visibles++;                // sumamos 1 al contador
             } else {
-                producto.hidden = true;    // se oculta
+                producto.classList.add('hidden');      // se oculta
             }
         });
 
