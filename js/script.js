@@ -17,3 +17,23 @@ botonMenu.addEventListener('click', function () {
     botonMenu.textContent = abierto ? 'Cerrar' : 'Menú';
     botonMenu.setAttribute('aria-expanded', abierto);
 });
+
+// ===== MODO CLARO / OSCURO =====
+
+// 1. SELECCIONAR el botón y la etiqueta <html>
+const botonTema = document.querySelector('#boton-tema');
+const html = document.documentElement;
+
+// 2. ESCUCHAR el clic en el botón
+botonTema.addEventListener('click', function () {
+
+    // 3. CAMBIAR: poner o quitar la clase "dark" en <html>
+    html.classList.toggle('dark');
+
+    // Saber si ahora está en oscuro (si tiene la clase "dark")
+    const oscuro = html.classList.contains('dark');
+
+    // Cambiar el texto del botón y avisar al lector de pantalla
+    botonTema.textContent = oscuro ? 'Modo claro' : 'Modo oscuro';
+    botonTema.setAttribute('aria-pressed', oscuro);
+});
