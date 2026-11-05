@@ -33,7 +33,45 @@ botonTema.addEventListener('click', function () {
     // Saber si ahora está en oscuro (si tiene la clase "dark")
     const oscuro = html.classList.contains('dark');
 
+    // Guardar la elección en la memoria del navegador
+    localStorage.setItem('tema', oscuro ? 'oscuro' : 'claro');
+
     // Cambiar el texto del botón y avisar al lector de pantalla
     botonTema.textContent = oscuro ? 'Modo claro' : 'Modo oscuro';
     botonTema.setAttribute('aria-pressed', oscuro);
+});
+
+// Al cargar la página: si la última vez eligió oscuro, lo ponemos
+if (localStorage.getItem('tema') === 'oscuro') {
+    html.classList.add('dark');
+    botonTema.textContent = 'Modo claro';
+    botonTema.setAttribute('aria-pressed', true);
+}
+
+
+// ===== LIBRERÍA: SWIPER (slider de novedades) =====
+// Docs: swiperjs.com/get-started
+
+new Swiper('.swiper', {
+    slidesPerView: 1.15,
+    spaceBetween: 16,
+    pagination: { el: '.swiper-pagination' },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+    breakpoints: {
+        640: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 }
+    }
+});
+
+
+// ===== LIBRERÍA: AOS (animaciones al hacer scroll) =====
+// Docs: michalsnik.github.io/aos
+// En el HTML, los títulos h2 y la rejilla de la carta llevan data-aos="fade-up"
+
+AOS.init({
+    duration: 800,
+    once: true
 });
