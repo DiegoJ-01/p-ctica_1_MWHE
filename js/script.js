@@ -75,3 +75,42 @@ AOS.init({
     duration: 800,
     once: true
 });
+
+// ===== FILTROS DE LA CARTA =====
+
+// 1. SELECCIONAR: todos los botones de filtro, todos los productos y el contador
+const botonesFiltro = document.querySelectorAll('.chip-filtro');
+const productos = document.querySelectorAll('#lista-carta article');
+const contador = document.querySelector('#contador-carta');
+
+// 2. ESCUCHAR: a cada botón le ponemos un "escuchador" de clic
+botonesFiltro.forEach(function (boton) {
+    boton.addEventListener('click', function () {
+
+        // ¿Qué categoría ha elegido? (lee el data-filtro del botón)
+        const filtro = boton.dataset.filtro;
+
+        // 3a. CAMBIAR los botones: quitar "activo" a todos y ponérselo al pulsado
+        botonesFiltro.forEach(function (otro) {
+            otro.classList.remove('activo');
+            otro.setAttribute('aria-pressed', false);
+        });
+        boton.classList.add('activo');
+        boton.setAttribute('aria-pressed', true);
+
+        // 3b. CAMBIAR los productos: enseñar los que coinciden y ocultar el resto
+        let visibles = 0;
+
+        productos.forEach(function (producto) {
+            if (filtro === 'todos' || producto.dataset.categoria === filtro) {
+                producto.hidden = false;   // se ve
+                visibles++;                // sumamos 1 al contador
+            } else {
+                producto.hidden = true;    // se oculta
+            }
+        });
+
+        // 3c. CAMBIAR el texto del contador
+        contador.textContent = 'Mostrando ' + visibles + ' productos';
+    });
+});
