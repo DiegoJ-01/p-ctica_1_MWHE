@@ -1,0 +1,276 @@
+/* =========================================================
+   OTRA RONDA · CSS propio
+   Aquí va lo que Tailwind no resuelve bien: animaciones,
+   adornos, formas y detalles de identidad.
+   El layout, los espaciados, los colores y el responsive
+   van con clases de Tailwind en el HTML.
+   ========================================================= */
+
+/* 1. Mismo orden de capas que Tailwind (siempre la primera línea).
+      Así las clases del HTML (utilities) ganan a lo nuestro. */
+@layer theme, base, components, utilities;
+
+
+/* =========================================================
+   FUERA DE CAPAS: lo que no compite con Tailwind
+   ========================================================= */
+
+/* --- Modo oscuro: redefinimos los colores por función del @theme.
+       Todas las clases que los usan (bg-fondo, text-texto...) cambian solas. --- */
+.dark {
+    --color-fondo: #17140f;   /* noche */
+    --color-texto: #f4eee1;   /* servilleta */
+    --color-borde: #f4eee1;
+}
+
+/* --- Animaciones con @keyframes --- */
+
+/* Pegatina de estrella que gira despacio */
+@keyframes girar {
+    to { transform: rotate(360deg); }
+}
+
+/* Cinta de texto que se desplaza en horizontal */
+@keyframes desplazar {
+    to { transform: translateX(-50%); }
+}
+
+/* La caña de la portada flota un poco */
+@keyframes flotar {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50%      { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* La flecha de "baja" rebota */
+@keyframes rebotar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(6px); }
+}
+
+/* Las tarjetas de la carta "brindan" al pasar el ratón */
+@keyframes brindis {
+    0%, 100% { transform: rotate(0); }
+    25%      { transform: rotate(-3deg); }
+    75%      { transform: rotate(3deg); }
+}
+
+/* --- CSS de librerías: no está en ninguna capa, así que lo que
+       cambiemos suyo también tiene que ir fuera de capas. --- */
+.swiper-slide {
+    height: auto; /* todas las tarjetas del slider miden lo mismo */
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-cana);
+}
+
+
+/* =========================================================
+   @layer base: estilos de etiquetas
+   ========================================================= */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Para que al pulsar el menú el título no quede debajo de la cabecera fija */
+    section[id] {
+        scroll-margin-top: 5rem;
+    }
+
+    h1, h2, h3 {
+        font-family: var(--font-rotulo);
+        line-height: 0.9;
+        text-transform: uppercase;
+    }
+
+    ::selection {
+        background: var(--color-cana);
+        color: var(--color-tinta);
+    }
+
+    /* Foco visible en todo lo que se puede pulsar (accesibilidad) */
+    a:focus-visible,
+    button:focus-visible {
+        outline: 3px solid var(--color-cana);
+        outline-offset: 3px;
+    }
+}
+
+
+/* =========================================================
+   @layer components: nuestras clases propias
+   ========================================================= */
+@layer components {
+
+    /* --- Pegatina de estrella ("CAÑAS TAPAS VERMUT...", "SOLO 5,00€") --- */
+    .pegatina {
+        display: grid;
+        place-items: center;
+        aspect-ratio: 1;
+        text-align: center;
+        /* forma de estrella de 12 puntas */
+        clip-path: polygon(
+            50% 0%, 61% 11%, 75% 7%, 79% 21%, 93% 25%, 89% 39%,
+            100% 50%, 89% 61%, 93% 75%, 79% 79%, 75% 93%, 61% 89%,
+            50% 100%, 39% 89%, 25% 93%, 21% 79%, 7% 75%, 11% 61%,
+            0% 50%, 11% 39%, 7% 25%, 21% 21%, 25% 7%, 39% 11%
+        );
+        animation: girar 18s linear infinite;
+    }
+
+    /* el texto de dentro va en un <span> y gira al revés para leerse siempre */
+    .pegatina > span {
+        animation: girar 18s linear infinite reverse;
+    }
+
+    /* --- Cinta de texto que se mueve entre secciones --- */
+    .cinta {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    /* el texto se repite dos veces dentro para que el bucle no se note */
+    .cinta > div {
+        display: inline-flex;
+        gap: 2rem;
+        animation: desplazar 20s linear infinite;
+    }
+
+    .cinta:hover > div {
+        animation-play-state: paused;
+    }
+
+    /* --- Fotos "desordenadas" del bloque El Bar --- */
+    .foto-suelta {
+        border: 6px solid #fff;
+        box-shadow: var(--shadow-pegada);
+        transform: rotate(-4deg);
+        transition: transform 0.4s ease;
+    }
+
+    .foto-suelta:nth-child(even) {
+        transform: rotate(3deg);
+    }
+
+    .foto-suelta:hover,
+    .foto-suelta:focus-within {
+        transform: rotate(0) scale(1.04);
+    }
+
+    /* --- Caña de la portada --- */
+    .cana-flotante {
+        animation: flotar 5s ease-in-out infinite;
+    }
+
+    /* --- Flecha de "baja" --- */
+    .flecha-baja {
+        animation: rebotar 1.6s ease-in-out infinite;
+    }
+
+    /* --- Tarjetas de la carta --- */
+    .tarjeta-tapa {
+        border: 3px solid var(--color-tinta);
+        box-shadow: var(--shadow-pegada);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tarjeta-tapa:hover,
+    .tarjeta-tapa:focus-within {
+        transform: translate(-3px, -3px);
+        box-shadow: 10px 10px 0 var(--color-tinta);
+    }
+
+    .tarjeta-tapa:hover img {
+        animation: brindis 0.6s ease-in-out;
+    }
+
+    /* --- Botón principal ("VER LA CARTA ↗", "CÓMO LLEGAR ↗") --- */
+    .boton-ronda {
+        border: 3px solid var(--color-tinta);
+        box-shadow: 4px 4px 0 var(--color-tinta);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .boton-ronda:hover,
+    .boton-ronda:focus-visible {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 var(--color-tinta);
+    }
+
+    .boton-ronda:active {
+        transform: translate(2px, 2px);
+        box-shadow: 0 0 0 var(--color-tinta);
+    }
+
+    /* --- Chips de filtro de la carta (TODOS / TAPAS / RACIONES / BEBIDAS) ---
+       El JavaScript de Diego pone la clase .activo al filtro elegido. */
+    .chip-filtro {
+        border: 2px solid currentColor;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .chip-filtro.activo {
+        background: var(--color-cana);
+        border-color: var(--color-cana);
+        color: var(--color-tinta);
+    }
+
+    /* --- Enlaces del menú: subrayado que crece --- */
+    .enlace-menu {
+        position: relative;
+    }
+
+    .enlace-menu::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 100%;
+        height: 3px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    .enlace-menu:hover::after,
+    .enlace-menu:focus-visible::after {
+        transform: scaleX(1);
+    }
+
+    /* --- Etiqueta pequeña de sección ("01 / EL BAR") --- */
+    .etiqueta-seccion {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    /* --- Garabato azul decorativo del bloque El Bar --- */
+    .garabato::before {
+        content: "";
+        display: block;
+        width: 7rem;
+        height: 3rem;
+        border: 4px solid var(--color-azulejo);
+        border-radius: 50%;
+        transform: rotate(-12deg);
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+/* =========================================================
+   Si la persona tiene activado "reducir movimiento" en su
+   sistema, quitamos las animaciones.
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
