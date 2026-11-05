@@ -6,20 +6,53 @@
     <title>Nombre provisional · Tu bar de siempre, pero no como siempre</title>
     <meta name="description" content="Otra Ronda, bar de barrio en Madrid: cañas, tapas, vermut y buen rollo. Carta, novedades, horario y cómo llegar.">
 
+    <!-- 1. Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 
-    <!-- CSS de librerías -->
+    <!-- 2. CSS de librerías -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <!-- Tailwind desde el Play CDN -->
+    <!-- 3. Nuestro CSS propio -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- 4. Tailwind desde el Play CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style type="text/tailwindcss">
         /* Modo oscuro con la clase .dark en <html> (la pone js/interfaz.js) */
         @custom-variant dark (&:where(.dark, .dark *));
+
+        /* 5. Sistema de diseño de Otra Ronda */
+        @theme static {
+            /* Colores de marca (no cambian en modo oscuro) */
+            --color-guindilla: #ee3b2b;   /* rojo de la portada */
+            --color-cana: #ffe04a;        /* amarillo cerveza */
+            --color-azulejo: #2b44e8;     /* azul de la carta */
+            --color-chicle: #f7a8d0;      /* rosa de la promo */
+            --color-servilleta: #f4eee1;  /* crema de la ubicación */
+            --color-tinta: #141414;       /* negro del texto */
+            --color-noche: #17140f;       /* fondo del modo oscuro */
+            --color-barra: #26221b;       /* superficies del modo oscuro */
+
+            /* Colores por función: en modo oscuro los redefine css/styles.css */
+            --color-fondo: #f4eee1;
+            --color-texto: #141414;
+            --color-borde: #141414;
+
+            /* Tipografías */
+            --font-rotulo: "Archivo Black", Impact, sans-serif;
+            --font-texto: "DM Sans", system-ui, sans-serif;
+
+            /* Radios y sombras de las tarjetas */
+            --radius-tapa: 1.25rem;
+            --shadow-pegada: 6px 6px 0 var(--color-tinta);
+        }
     </style>
 </head>
-<body>
+<body class="bg-fondo font-texto text-texto antialiased transition-colors duration-500">
 
     <!-- CABECERA -->
     <header>
