@@ -83,11 +83,62 @@
     </header>
 
     <main id="contenido">
-        <!-- 00 · PORTADA -->
-        <section id="inicio"></section>
-
-        <!-- 01 · EL BAR -->
-        <section id="bar"></section>
+                <!-- 00 · PORTADA -->
+                <section id="inicio" aria-labelledby="titulo-inicio">
+                    <div>
+                        <h1 id="titulo-inicio">La última y nos vamos.</h1>
+                        <p>Tu bar de barrio, pero con más vida.</p>
+                        <a href="#carta" class="boton-ronda">Ver la carta <span aria-hidden="true">↗</span></a>
+                    </div>
+        
+                    <figure>
+                        <img src="img/cerveza.jpg" alt="Caña de cerveza bien tirada, con su espuma" class="cana-flotante">
+                    </figure>
+        
+                    <!-- Pegatina de estrella: el texto va en un span para que gire al revés -->
+                    <p class="pegatina"><span>Cañas, tapas, vermut y buen rollo</span></p>
+        
+                    <a href="#bar" class="flecha-baja" aria-label="Bajar a la sección El bar"><span aria-hidden="true">↓</span></a>
+                </section>
+        
+                <!-- Cinta de texto en movimiento (el texto va dos veces para que el bucle no se note) -->
+                <div class="cinta" aria-hidden="true">
+                    <div>
+                        <span>Cañas</span><span>✺</span><span>Tapas</span><span>✺</span><span>Vermut</span><span>✺</span><span>Buen rollo</span><span>✺</span>
+                        <span>Cañas</span><span>✺</span><span>Tapas</span><span>✺</span><span>Vermut</span><span>✺</span><span>Buen rollo</span><span>✺</span>
+                    </div>
+                </div>
+        
+                <!-- 01 · EL BAR -->
+                <section id="bar" aria-labelledby="titulo-bar">
+                    <div>
+                        <p class="etiqueta-seccion">01 / El bar</p>
+                        <h2 id="titulo-bar">Mucho bar. Poca tontería.</h2>
+                        <p>
+                            El sitio de las cañas improvisadas, las sobremesas que se alargan
+                            y las tapas que nunca fallan. Abrimos en 1987 en la misma esquina
+                            y seguimos poniendo la tapa con cada consumición, como siempre.
+                        </p>
+                        <ul>
+                            <li>Tapa gratis con cada caña</li>
+                            <li>Terraza todo el año</li>
+                            <li>Partidos en pantalla grande</li>
+                        </ul>
+                    </div>
+        
+                    <div>
+                        <figure class="foto-suelta">
+                            <img src="img/cervezaamigos.jpg" alt="Amigos brindando con cañas en la barra">
+                            <figcaption>La caña de las siete.</figcaption>
+                        </figure>
+                        <figure class="foto-suelta">
+                            <img src="img/tortilla.jpg" alt="Tortilla de patata jugosa en un plato">
+                            <figcaption>La tortilla, poco hecha.</figcaption>
+                        </figure>
+                    </div>
+        
+                    <p class="garabato">Desde siempre. Para siempre.</p>
+                </section>
 
         <!-- 02 · LA CARTA -->
         <section id="carta"></section>
