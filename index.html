@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nombre provisional · Tu bar de siempre, pero no como siempre</title>
+     <title>Otra Ronda · Tu bar de barrio en Madrid</title>
     <meta name="description" content="Otra Ronda, bar de barrio en Madrid: cañas, tapas, vermut y buen rollo. Carta, novedades, horario y cómo llegar.">
 
     <!-- 1. Tipografías -->
@@ -98,7 +98,7 @@
                     <!-- Pegatina de estrella: el texto va en un span para que gire al revés -->
                     <p class="pegatina absolute right-4 bottom-20 z-20 w-28 bg-chicle text-tinta sm:w-36 md:right-10 md:bottom-12 lg:w-44"><span class="px-4 font-rotulo text-xs leading-tight uppercase sm:text-sm">Cañas, tapas, vermut y buen rollo</span></p>
         
-                    <a href="#bar" class="flecha-baja absolute bottom-6 left-5 grid size-11 place-items-center rounded-full border-2 border-tinta bg-cana text-lg font-bold text-tinta hover:bg-servilleta md:left-10" aria-label="Bajar a la sección El bar"><span aria-hidden="true">↓</span></a>
+                    <a href="#bar" class="flecha-baja absolute bottom-6 left-1/2 hidden size-11 -translate-x-1/2 place-items-center rounded-full border-2 border-tinta bg-cana text-lg font-bold text-tinta hover:bg-servilleta md:grid" aria-label="Bajar a la sección El bar"><span aria-hidden="true">↓</span></a>
                 </section>
         
                 <!-- Cinta de texto en movimiento (el texto va dos veces para que el bucle no se note) -->
@@ -140,117 +140,117 @@
                     <p class="garabato font-rotulo text-2xl uppercase md:col-span-2 md:justify-self-end">Desde siempre. Para siempre.</p>
                 </section>
 
-                <section id="carta" aria-labelledby="titulo-carta">
-                    <p class="etiqueta-seccion">02 / La carta</p>
-                    <h2 id="titulo-carta">Pa' picar.</h2>
+                <section id="carta" aria-labelledby="titulo-carta" class="bg-azulejo px-5 py-16 text-servilleta md:px-10 md:py-24 dark:bg-noche">
+                    <p class="etiqueta-seccion text-servilleta/80">02 / La carta</p>
+                    <h2 id="titulo-carta" class="mt-3 text-5xl md:text-7xl">Pa' picar.</h2>
         
                     <!-- Filtros: cada botón dice qué categoría enseña con data-filtro.
                          El activo lleva la clase "activo" (estilo de Michela) y aria-pressed="true" -->
-                    <div role="group" aria-label="Filtrar la carta por tipo">
-                        <button type="button" class="chip-filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>
-                        <button type="button" class="chip-filtro" data-filtro="tapas" aria-pressed="false">Tapas</button>
-                        <button type="button" class="chip-filtro" data-filtro="raciones" aria-pressed="false">Raciones</button>
-                        <button type="button" class="chip-filtro" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
+                    <div role="group" aria-label="Filtrar la carta por tipo" class="mt-6 flex flex-wrap gap-2">
+                        <button type="button" class="chip-filtro activo rounded-full px-4 py-1.5 text-xs font-bold uppercase not-[.activo]:hover:bg-servilleta/20 md:text-sm" data-filtro="todos" aria-pressed="true">Todos</button>
+                        <button type="button" class="chip-filtro rounded-full px-4 py-1.5 text-xs font-bold uppercase not-[.activo]:hover:bg-servilleta/20 md:text-sm" data-filtro="tapas" aria-pressed="false">Tapas</button>
+                        <button type="button" class="chip-filtro rounded-full px-4 py-1.5 text-xs font-bold uppercase not-[.activo]:hover:bg-servilleta/20 md:text-sm" data-filtro="raciones" aria-pressed="false">Raciones</button>
+                        <button type="button" class="chip-filtro rounded-full px-4 py-1.5 text-xs font-bold uppercase not-[.activo]:hover:bg-servilleta/20 md:text-sm" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
                     </div>
         
                     <!-- El JS cambia este texto al filtrar; aria-live hace que el lector de pantalla lo lea -->
-                    <p id="contador-carta" aria-live="polite">Mostrando 9 productos</p>
+                    <p id="contador-carta" aria-live="polite" class="mt-4 text-sm text-servilleta/80">Mostrando 9 productos</p>
         
                     <!-- Cada producto dice su categoría con data-categoria -->
-                    <div id="lista-carta">
+                    <div id="lista-carta" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         <!-- TAPAS -->
-                        <article class="tarjeta-tapa" data-categoria="tapas">
-                            <img src="img/patatasbravas.jpg" alt="Patatas bravas con salsa brava y alioli" loading="lazy">
-                            <h3>Bravas</h3>
-                            <p>Las de siempre.</p>
-                            <p>6,50 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-cana p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="tapas">
+                            <img src="img/patatasbravas.jpg" alt="Patatas bravas con salsa brava y alioli" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Bravas</h3>
+                            <p class="mt-1 text-sm">Las de siempre.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">6,50 €</p>
                         </article>
-                        <article class="tarjeta-tapa" data-categoria="tapas">
-                            <img src="img/croquetas.jpg" alt="Croquetas caseras de jamón" loading="lazy">
-                            <h3>Croquetas</h3>
-                            <p>De jamón. Bien cremosas.</p>
-                            <p>8,00 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-chicle p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="tapas">
+                            <img src="img/croquetas.jpg" alt="Croquetas caseras de jamón" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Croquetas</h3>
+                            <p class="mt-1 text-sm">De jamón. Bien cremosas.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">8,00 €</p>
                         </article>
-                        <article class="tarjeta-tapa" data-categoria="tapas">
-                            <img src="img/gilda.jpg" alt="Gilda: banderilla de aceituna, anchoa y guindilla" loading="lazy">
-                            <h3>Gilda</h3>
-                            <p>Pura tradición.</p>
-                            <p>2,50 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-servilleta p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="tapas">
+                            <img src="img/gilda.jpg" alt="Gilda: banderilla de aceituna, anchoa y guindilla" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Gilda</h3>
+                            <p class="mt-1 text-sm">Pura tradición.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">2,50 €</p>
                         </article>
         
                         <!-- RACIONES -->
-                        <article class="tarjeta-tapa" data-categoria="raciones">
-                            <img src="img/tortilla.jpg" alt="Tortilla de patata entera" loading="lazy">
-                            <h3>Tortilla</h3>
-                            <p>Con cebolla. Sin debate.</p>
-                            <p>9,00 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-cana p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="raciones">
+                            <img src="img/tortilla.jpg" alt="Tortilla de patata entera" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Tortilla</h3>
+                            <p class="mt-1 text-sm">Con cebolla. Sin debate.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">9,00 €</p>
                         </article>
-                        <article class="tarjeta-tapa" data-categoria="raciones">
-                            <img src="img/calamares.jpg" alt="Ración de calamares a la romana con limón" loading="lazy">
-                            <h3>Calamares</h3>
-                            <p>A la romana, con limón.</p>
-                            <p>11,00 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-chicle p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="raciones">
+                            <img src="img/calamares.jpg" alt="Ración de calamares a la romana con limón" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Calamares</h3>
+                            <p class="mt-1 text-sm">A la romana, con limón.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">11,00 €</p>
                         </article>
-                        <article class="tarjeta-tapa" data-categoria="raciones">
-                            <img src="img/torreznos.jpg" alt="Torreznos crujientes" loading="lazy">
-                            <h3>Torreznos</h3>
-                            <p>Crujen. Mucho.</p>
-                            <p>8,50 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-servilleta p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="raciones">
+                            <img src="img/torreznos.jpg" alt="Torreznos crujientes" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Torreznos</h3>
+                            <p class="mt-1 text-sm">Crujen. Mucho.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">8,50 €</p>
                         </article>
         
                         <!-- BEBIDAS -->
-                        <article class="tarjeta-tapa" data-categoria="bebidas">
-                            <img src="img/cerveza.jpg" alt="Caña de cerveza fría" loading="lazy">
-                            <h3>Caña</h3>
-                            <p>Fría y bien tirada.</p>
-                            <p>2,20 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-cana p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="bebidas">
+                            <img src="img/cerveza.jpg" alt="Caña de cerveza fría" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Caña</h3>
+                            <p class="mt-1 text-sm">Fría y bien tirada.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">2,20 €</p>
                         </article>
-                        <article class="tarjeta-tapa" data-categoria="bebidas">
-                            <img src="img/vermut.jpg" alt="Vaso de vermut con hielo y naranja" loading="lazy">
-                            <h3>Vermut de grifo</h3>
-                            <p>Con su naranja y su aceituna.</p>
-                            <p>3,50 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-chicle p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="bebidas">
+                            <img src="img/vermut.jpg" alt="Vaso de vermut con hielo y naranja" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Vermut de grifo</h3>
+                            <p class="mt-1 text-sm">Con su naranja y su aceituna.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">3,50 €</p>
                         </article>
-                        <article class="tarjeta-tapa" data-categoria="bebidas">
-                            <img src="img/wine.jpg" alt="Copa de vino tinto" loading="lazy">
-                            <h3>Vino de la casa</h3>
-                            <p>Tinto o blanco, tú eliges.</p>
-                            <p>2,80 €</p>
+                        <article class="tarjeta-tapa flex flex-col rounded-tapa bg-servilleta p-4 text-tinta dark:border-cana dark:bg-barra dark:text-servilleta" data-categoria="bebidas">
+                            <img src="img/wine.jpg" alt="Copa de vino tinto" loading="lazy" class="aspect-[4/3] w-full rounded-xl border-2 border-tinta object-cover">
+                            <h3 class="mt-4 text-2xl">Vino de la casa</h3>
+                            <p class="mt-1 text-sm">Tinto o blanco, tú eliges.</p>
+                            <p class="mt-auto pt-3 font-rotulo text-2xl">2,80 €</p>
                         </article>
                     </div>
                 </section>
 
-                <section id="novedades" aria-labelledby="titulo-novedades">
+                <section id="novedades" aria-labelledby="titulo-novedades" class="bg-chicle px-5 py-16 text-tinta md:px-10 md:py-24 dark:bg-barra dark:text-servilleta">
                     <p class="etiqueta-seccion">03 / Especial de la casa</p>
-                    <h2 id="titulo-novedades">Hoy se lía.</h2>
+                    <h2 id="titulo-novedades" class="mt-3 text-5xl text-azulejo md:text-7xl dark:text-chicle">Hoy se lía.</h2>
         
                     <!-- Slider con Swiper. Estructura obligatoria de la librería:
                          .swiper > .swiper-wrapper > .swiper-slide -->
-                    <div class="swiper slider-novedades">
+                    <div class="swiper slider-novedades mt-10 pb-12">
                         <div class="swiper-wrapper">
-                            <article class="swiper-slide">
-                                <img src="img/vermut.jpg" alt="Vermut con hielo y naranja junto a un cuenco de aceitunas" loading="lazy">
-                                <h3>Vermut + Gilda</h3>
-                                <p>Los domingos saben mejor con aperitivo.</p>
-                                <p class="pegatina"><span>Solo 5,00 €</span></p>
+                            <article class="swiper-slide relative rounded-tapa border-4 border-tinta bg-servilleta p-4 text-tinta dark:border-chicle dark:bg-noche dark:text-servilleta">
+                                <img src="img/vermut-gilda.jpg" alt="Vaso de vermut con hielo y naranja junto a un plato con una gilda" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+                                <h3 class="mt-4 text-2xl md:text-3xl">Vermut + Gilda</h3>
+                                <p class="mt-2">Los domingos saben mejor con aperitivo.</p>
+                                <p class="pegatina absolute top-1 right-1 w-24 bg-cana text-tinta md:w-28"><span class="px-2 text-center font-rotulo text-xs leading-tight uppercase md:text-sm">Solo 5,00 €</span></p>
                             </article>
-                            <article class="swiper-slide">
-                                <img src="img/croquetas.jpg" alt="Plato de croquetas caseras" loading="lazy">
-                                <h3>Martes de croqueta</h3>
-                                <p>La segunda ración, a mitad de precio.</p>
-                                <p class="pegatina"><span>2ª a mitad</span></p>
+                            <article class="swiper-slide relative rounded-tapa border-4 border-tinta bg-servilleta p-4 text-tinta dark:border-chicle dark:bg-noche dark:text-servilleta">
+                                <img src="img/croquetas.jpg" alt="Plato de croquetas caseras" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+                                <h3 class="mt-4 text-2xl md:text-3xl">Martes de croqueta</h3>
+                                <p class="mt-2">La segunda ración, a mitad de precio.</p>
+                                <p class="pegatina absolute top-1 right-1 w-24 bg-cana text-tinta md:w-28"><span class="px-2 text-center font-rotulo text-xs leading-tight uppercase md:text-sm">2ª a mitad</span></p>
                             </article>
-                            <article class="swiper-slide">
-                                <img src="img/cervezaamigos.jpg" alt="Amigos con cañas viendo un partido en el bar" loading="lazy">
-                                <h3>Partido en pantalla grande</h3>
-                                <p>Cubo de cinco tercios mientras dura el partido.</p>
-                                <p class="pegatina"><span>Cubo 10,00 €</span></p>
+                            <article class="swiper-slide relative rounded-tapa border-4 border-tinta bg-servilleta p-4 text-tinta dark:border-chicle dark:bg-noche dark:text-servilleta">
+                                <img src="img/cervezaamigos.jpg" alt="Amigos con cañas viendo un partido en el bar" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+                                <h3 class="mt-4 text-2xl md:text-3xl">Partido en pantalla grande</h3>
+                                <p class="mt-2">Cubo de cinco tercios mientras dura el partido.</p>
+                                <p class="pegatina absolute top-1 right-1 w-24 bg-cana text-tinta md:w-28"><span class="px-2 text-center font-rotulo text-xs leading-tight uppercase md:text-sm">Cubo 10,00 €</span></p>
                             </article>
-                            <article class="swiper-slide">
-                                <img src="img/wine.jpg" alt="Copas de vino en la barra" loading="lazy">
-                                <h3>Jueves de música en directo</h3>
-                                <p>Grupos del barrio desde las <time datetime="21:00">21:00</time>. Entrada libre.</p>
-                                <p class="pegatina"><span>Gratis</span></p>
+                            <article class="swiper-slide relative rounded-tapa border-4 border-tinta bg-servilleta p-4 text-tinta dark:border-chicle dark:bg-noche dark:text-servilleta">
+                                <img src="img/wine.jpg" alt="Copas de vino en la barra" loading="lazy" class="aspect-[4/3] w-full rounded-xl object-cover">
+                                <h3 class="mt-4 text-2xl md:text-3xl">Jueves de música en directo</h3>
+                                <p class="mt-2">Grupos del barrio desde las <time datetime="21:00">21:00</time>. Entrada libre.</p>
+                                <p class="pegatina absolute top-1 right-1 w-24 bg-cana text-tinta md:w-28"><span class="px-2 text-center font-rotulo text-xs leading-tight uppercase md:text-sm">Gratis</span></p>
                             </article>
                         </div>
         
@@ -262,31 +262,31 @@
                 </section>
 
         <!-- 04 · HORARIO Y CONTACTO -->
-        <section id="contacto" aria-labelledby="titulo-contacto">
+        <section id="contacto" aria-labelledby="titulo-contacto" class="bg-servilleta px-5 py-16 text-tinta md:px-10 md:py-24 dark:bg-noche dark:text-servilleta">
             <p class="etiqueta-seccion">04 / Nos vemos en el bar</p>
-            <h2 id="titulo-contacto">A dos pasos de todo.</h2>
+            <h2 id="titulo-contacto" class="mt-3 text-5xl text-guindilla md:text-7xl">A dos pasos de todo.</h2>
 
             <!-- "Abierto ahora" o "Cerrado ahora" -->
-            <p id="estado-bar" aria-live="polite"></p>
+            <p id="estado-bar" aria-live="polite" class="mt-4 inline-block rounded-full bg-cana px-4 py-1 text-sm font-bold uppercase text-tinta empty:hidden"></p>
 
-            <div>
-                <div>
-                    <h3>Dónde estamos</h3>
-                    <address>
+            <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div class="rounded-tapa border-4 border-tinta bg-cana p-6 text-tinta shadow-pegada dark:border-cana dark:bg-barra dark:text-servilleta">
+                    <h3 class="text-2xl">Dónde estamos</h3>
+                    <address class="mt-3 leading-relaxed not-italic [&_a]:font-bold [&_a]:underline [&_a]:decoration-2 [&_a]:underline-offset-4 [&_a:hover]:text-guindilla [&_a:focus-visible]:text-guindilla">
                         Calle del Bar, 12<br>
                         28012 Madrid<br>
                         <a href="tel:+34915551212">915 55 12 12</a><br>
                         <a href="https://www.instagram.com/" target="_blank" rel="noopener">@otraronda</a>
                     </address>
-                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Lavapi%C3%A9s+Madrid" target="_blank" rel="noopener" class="boton-ronda">
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Lavapi%C3%A9s+Madrid" target="_blank" rel="noopener" class="boton-ronda mt-5 inline-flex items-center gap-2 rounded-full bg-servilleta px-5 py-2.5 text-sm font-bold uppercase text-tinta">
                         Cómo llegar <span aria-hidden="true">↗</span>
                     </a>
                 </div>
 
-                <div>
-                    <h3>Horario</h3>
+                <div class="rounded-tapa border-4 border-tinta bg-chicle p-6 text-tinta shadow-pegada dark:border-chicle dark:bg-barra dark:text-servilleta">
+                    <h3 class="text-2xl">Horario</h3>
                     <!-- data-dias: 0 = domingo, 1 = lunes ... 6 = sábado (como en JavaScript) -->
-                    <table id="tabla-horario">
+                    <table id="tabla-horario" class="mt-3 w-full text-left [&_td]:py-2 [&_td]:text-right [&_th]:py-2 [&_th]:pr-4 [&_tr]:border-b-2 [&_tr]:border-tinta/20 dark:[&_tr]:border-servilleta/20">
                         <caption class="sr-only">Horario de apertura de Otra Ronda</caption>
                         <tbody>
                             <tr data-dias="1,2,3,4">
@@ -309,22 +309,23 @@
                     src="https://www.google.com/maps?q=Lavapi%C3%A9s%2C+Madrid&amp;output=embed"
                     title="Mapa con la ubicación de Otra Ronda"
                     loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="h-72 w-full rounded-tapa border-4 border-tinta md:col-span-2 lg:col-span-1 lg:h-full dark:border-cana"></iframe>
             </div>
         </section>
 
     <!-- FOOTER -->
-    <footer>
-        <p>Otra Ronda<sup>®</sup> · Tu bar de barrio, pero con más vida.</p>
+    <footer class="flex flex-col gap-6 border-t-4 border-cana bg-tinta px-5 py-10 text-servilleta md:flex-row md:items-center md:justify-between md:px-10 dark:bg-barra">
+        <p class="font-rotulo text-lg uppercase">Otra Ronda<sup>®</sup> · Tu bar de barrio, pero con más vida.</p>
         <nav aria-label="Pie de página">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#carta">Carta</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+            <ul class="flex flex-wrap gap-6 text-sm font-bold uppercase">
+                <li><a href="#inicio" class="enlace-menu hover:text-cana focus-visible:text-cana">Inicio</a></li>
+                <li><a href="#carta" class="enlace-menu hover:text-cana focus-visible:text-cana">Carta</a></li>
+                <li><a href="#contacto" class="enlace-menu hover:text-cana focus-visible:text-cana">Contacto</a></li>
             </ul>
         </nav>
         <!-- El JS pone el año actual automáticamente -->
-        <p><small>© <span id="anio">2026-2027</span> Otra Ronda · Práctica 01 MWHE · UDIT</small></p>
+        <p class="text-xs text-servilleta/70"><small>© <span id="anio">2026-2027</span> Otra Ronda · Práctica 01 MWHE · UDIT</small></p>
     </footer>
 
     <!-- JS de librerías -->
