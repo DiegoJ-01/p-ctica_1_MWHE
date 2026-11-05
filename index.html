@@ -140,8 +140,85 @@
                     <p class="garabato font-rotulo text-2xl uppercase md:col-span-2 md:justify-self-end">Desde siempre. Para siempre.</p>
                 </section>
 
-        <!-- 02 · LA CARTA -->
-        <section id="carta"></section>
+                <section id="carta" aria-labelledby="titulo-carta">
+                    <p class="etiqueta-seccion">02 / La carta</p>
+                    <h2 id="titulo-carta">Pa' picar.</h2>
+        
+                    <!-- Filtros: cada botón dice qué categoría enseña con data-filtro.
+                         El activo lleva la clase "activo" (estilo de Michela) y aria-pressed="true" -->
+                    <div role="group" aria-label="Filtrar la carta por tipo">
+                        <button type="button" class="chip-filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>
+                        <button type="button" class="chip-filtro" data-filtro="tapas" aria-pressed="false">Tapas</button>
+                        <button type="button" class="chip-filtro" data-filtro="raciones" aria-pressed="false">Raciones</button>
+                        <button type="button" class="chip-filtro" data-filtro="bebidas" aria-pressed="false">Bebidas</button>
+                    </div>
+        
+                    <!-- El JS cambia este texto al filtrar; aria-live hace que el lector de pantalla lo lea -->
+                    <p id="contador-carta" aria-live="polite">Mostrando 9 productos</p>
+        
+                    <!-- Cada producto dice su categoría con data-categoria -->
+                    <div id="lista-carta">
+                        <!-- TAPAS -->
+                        <article class="tarjeta-tapa" data-categoria="tapas">
+                            <img src="img/patatasbravas.jpg" alt="Patatas bravas con salsa brava y alioli" loading="lazy">
+                            <h3>Bravas</h3>
+                            <p>Las de siempre.</p>
+                            <p>6,50 €</p>
+                        </article>
+                        <article class="tarjeta-tapa" data-categoria="tapas">
+                            <img src="img/croquetas.jpg" alt="Croquetas caseras de jamón" loading="lazy">
+                            <h3>Croquetas</h3>
+                            <p>De jamón. Bien cremosas.</p>
+                            <p>8,00 €</p>
+                        </article>
+                        <article class="tarjeta-tapa" data-categoria="tapas">
+                            <img src="img/gilda.jpg" alt="Gilda: banderilla de aceituna, anchoa y guindilla" loading="lazy">
+                            <h3>Gilda</h3>
+                            <p>Pura tradición.</p>
+                            <p>2,50 €</p>
+                        </article>
+        
+                        <!-- RACIONES -->
+                        <article class="tarjeta-tapa" data-categoria="raciones">
+                            <img src="img/tortilla.jpg" alt="Tortilla de patata entera" loading="lazy">
+                            <h3>Tortilla</h3>
+                            <p>Con cebolla. Sin debate.</p>
+                            <p>9,00 €</p>
+                        </article>
+                        <article class="tarjeta-tapa" data-categoria="raciones">
+                            <img src="img/calamares.jpg" alt="Ración de calamares a la romana con limón" loading="lazy">
+                            <h3>Calamares</h3>
+                            <p>A la romana, con limón.</p>
+                            <p>11,00 €</p>
+                        </article>
+                        <article class="tarjeta-tapa" data-categoria="raciones">
+                            <img src="img/torreznos.jpg" alt="Torreznos crujientes" loading="lazy">
+                            <h3>Torreznos</h3>
+                            <p>Crujen. Mucho.</p>
+                            <p>8,50 €</p>
+                        </article>
+        
+                        <!-- BEBIDAS -->
+                        <article class="tarjeta-tapa" data-categoria="bebidas">
+                            <img src="img/cerveza.jpg" alt="Caña de cerveza fría" loading="lazy">
+                            <h3>Caña</h3>
+                            <p>Fría y bien tirada.</p>
+                            <p>2,20 €</p>
+                        </article>
+                        <article class="tarjeta-tapa" data-categoria="bebidas">
+                            <img src="img/vermut.jpg" alt="Vaso de vermut con hielo y naranja" loading="lazy">
+                            <h3>Vermut de grifo</h3>
+                            <p>Con su naranja y su aceituna.</p>
+                            <p>3,50 €</p>
+                        </article>
+                        <article class="tarjeta-tapa" data-categoria="bebidas">
+                            <img src="img/wine.jpg" alt="Copa de vino tinto" loading="lazy">
+                            <h3>Vino de la casa</h3>
+                            <p>Tinto o blanco, tú eliges.</p>
+                            <p>2,80 €</p>
+                        </article>
+                    </div>
+                </section>
 
         <!-- 03 · NOVEDADES -->
         <section id="novedades"></section>
