@@ -54,8 +54,32 @@
 </head>
 <body class="bg-fondo font-texto text-texto antialiased transition-colors duration-500">
 
+   <!-- Enlace oculto para teclado: salta directamente al contenido -->
+    <a href="#contenido" class="sr-only focus:not-sr-only">Saltar al contenido</a>
+
     <!-- CABECERA -->
     <header>
+        <!-- Logo: vuelve al inicio -->
+        <a href="#inicio" aria-label="Otra Ronda, ir al inicio">Otra Ronda<sup>®</sup></a>
+
+        <div>
+            <!-- Botón modo claro / oscuro (lo programa js/script.js) -->
+            <button id="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+
+            <!-- Botón hamburguesa: solo se ve en móvil (md:hidden) -->
+            <button id="boton-menu" type="button" aria-expanded="false" aria-controls="menu" class="md:hidden">Menú</button>
+        </div>
+
+        <!-- Navegación principal -->
+        <nav aria-label="Principal">
+            <!-- hidden: oculto en móvil hasta que el JS lo abra · md:flex: siempre visible en escritorio -->
+            <ul id="menu" class="hidden md:flex">
+                <li><a href="#bar" class="enlace-menu">El bar</a></li>
+                <li><a href="#carta" class="enlace-menu">Carta</a></li>
+                <li><a href="#novedades" class="enlace-menu">Novedades</a></li>
+                <li><a href="#contacto" class="enlace-menu">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main id="contenido">
