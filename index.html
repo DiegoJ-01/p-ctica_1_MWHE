@@ -22,7 +22,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style type="text/tailwindcss">
-        /* Modo oscuro con la clase .dark en <html> (la pone js/interfaz.js) */
+        /* Modo oscuro con la clase .dark en <html> */
         @custom-variant dark (&:where(.dark, .dark *));
 
         /* 5. Sistema de diseño de Otra Ronda */
@@ -37,7 +37,7 @@
             --color-noche: #17140f;       /* fondo del modo oscuro */
             --color-barra: #26221b;       /* superficies del modo oscuro */
 
-            /* Colores por función: en modo oscuro los redefine css/styles.css */
+            /* Colores por función: en modo oscuro los redefinimos en css */
             --color-fondo: #f4eee1;
             --color-texto: #141414;
             --color-borde: #141414;
@@ -57,16 +57,15 @@
    <!-- Enlace oculto para teclado: salta directamente al contenido -->
     <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-cana focus:px-4 focus:py-2 focus:font-bold focus:text-tinta">Saltar al contenido</a>
 
-    <!-- CABECERA -->
     <header class="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-3 border-b-4 border-tinta bg-guindilla px-5 py-3 text-tinta md:px-10 dark:border-cana dark:bg-barra dark:text-servilleta">
         <!-- Logo: vuelve al inicio -->
-        <a href="#inicio" aria-label="Otra Ronda, ir al inicio" class="font-rotulo text-xl uppercase transition-colors hover:text-cana focus-visible:text-cana md:text-2xl">Otra Ronda<sup>®</sup></a>
+        <a href="#inicio" aria-label="Otra Ronda, ir al inicio" class="font-rotulo text-xl uppercase transition-colors hover:text-cana focus:text-cana md:text-2xl">Otra Ronda<sup>®</sup></a>
 
         <div class="flex items-center gap-2 md:order-last">
-            <!-- Botón modo claro / oscuro (lo programa js/script.js) -->
+            <!-- Botón modo claro / oscuro -->
             <button id="boton-tema" type="button" aria-pressed="false" class="boton-ronda rounded-full bg-cana px-3 py-1.5 text-xs font-bold uppercase text-tinta md:text-sm">Modo oscuro</button>
 
-            <!-- Botón hamburguesa: solo se ve en móvil (md:hidden) -->
+            <!-- Botón hamburguesa: solo se ve en móvil -->
             <button id="boton-menu" type="button" aria-expanded="false" aria-controls="menu" class="boton-ronda rounded-full bg-servilleta px-3 py-1.5 text-xs font-bold uppercase text-tinta md:hidden">Menú</button>
         </div>
 
@@ -224,7 +223,7 @@
                     <p class="etiqueta-seccion">03 / Especial de la casa</p>
                     <h2 id="titulo-novedades" data-aos="fade-up" class="mt-3 text-5xl text-azulejo md:text-7xl dark:text-chicle">Hoy se lía.</h2>
         
-                    <!-- Slider con Swiper. Estructura obligatoria de la librería:
+                    <!-- Slider con Swiper.
                          .swiper > .swiper-wrapper > .swiper-slide -->
                     <div class="swiper slider-novedades mt-10 pb-12">
                         <div class="swiper-wrapper">
@@ -320,9 +319,9 @@
         <p class="font-rotulo text-lg uppercase">Otra Ronda<sup>®</sup> · Tu bar de barrio, pero con más vida.</p>
         <nav aria-label="Pie de página">
             <ul class="flex flex-wrap gap-6 text-sm font-bold uppercase">
-                <li><a href="#inicio" class="enlace-menu hover:text-cana focus-visible:text-cana">Inicio</a></li>
-                <li><a href="#carta" class="enlace-menu hover:text-cana focus-visible:text-cana">Carta</a></li>
-                <li><a href="#contacto" class="enlace-menu hover:text-cana focus-visible:text-cana">Contacto</a></li>
+                <li><a href="#inicio" class="enlace-menu hover:text-cana focus:text-cana">Inicio</a></li>
+                <li><a href="#carta" class="enlace-menu hover:text-cana focus:text-cana">Carta</a></li>
+                <li><a href="#contacto" class="enlace-menu hover:text-cana focus:text-cana">Contacto</a></li>
             </ul>
         </nav>
         <!-- El JS pone el año actual automáticamente -->
